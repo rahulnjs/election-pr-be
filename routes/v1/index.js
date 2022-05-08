@@ -14,25 +14,19 @@ router.post('/voters', async function (req, res) {
     skip = parseInt(_s);
   }
 
-  const results = await VOTERS_COLLECTION.find({ ...filters }).limit(limit).skip(skip).toArray();
-  nextPage = skip + limit;
+  try {
 
-  res.json({
-    next: btoa(`${nextPage}/${limit}`),
-    results
-  });
+    const results = await VOTERS_COLLECTION.find({ ...filters }).limit(limit).skip(skip).toArray();
+    nextPage = skip + limit;
+
+    res.json({
+      next: btoa(`${nextPage}/${limit}`),
+      results
+    });
+  } catch (e) {
+    res.status = 500;
+    res.json({ e })
+  }
 });
 
 module.exports = router;
-
-/*
-fetch('/v1/voters', {
-  method: "POST",
-  body: JSON.stringify({
-    limit: 15
-  }),
-  headers: {
-    "Content-type": "application/json"
-  }
-}).then(r => r.json().then(d => console.log(d)));
-*/
