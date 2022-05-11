@@ -31,7 +31,14 @@ router.post('/voters', async function (req, res) {
 
 router.get('/settings', async function (req, res) {
   const [setting] = await SETTINGS_COLLECTION.find().limit(1).toArray();
-  res.json({ setting });
+  res.json({
+    status: true,
+    code: 200,
+    message: "",
+    data: {
+      colorCodes: setting
+    }
+  });
 });
 
 
