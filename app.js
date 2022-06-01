@@ -19,12 +19,13 @@ app.use('/v1/', indexRouterV1);
 app.use('/v1/auth', authRouterV1);
 app.use('/', mockRouter);
 
-
+/*
 app.get('/', (req, res) => {
   res.json({
     ok: true
   })
 });
+*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
