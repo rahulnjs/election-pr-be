@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouterV1 = require('./routes/v1/index');
 var authRouterV1 = require('./routes/v1/auth');
+var mockRouter = require('./routes/mock');
 require("./db/mongo");
 
 var app = express();
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 app.use('/v1/', indexRouterV1);
 app.use('/v1/auth', authRouterV1);
+app.use('/', mockRouter);
 
 
 app.get('/', (req, res) => {
