@@ -1286,3 +1286,5 @@ app.get("/getbirthdays", (req, res) => {
         });
     }
 });
+
+module.exports = app;
