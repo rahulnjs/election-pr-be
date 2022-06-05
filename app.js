@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use('/v1/', indexRouterV1);
 app.use('/v1/auth', authRouterV1);
-app.use('/', mockRouter);
+app.use('/v1/', mockRouter);
 
 /*
 app.get('/', (req, res) => {
