@@ -70,40 +70,50 @@ app.get("/getallservices", (req, res) => {
         const voterServiceDetails = {
             title: "Voter Services",
             services: [
-                { id: "v1", label: "Voters", name: "user-alt" },
-                { id: "v2", label: "Search", name: "search-plus" },
-                { id: "v3", label: "Add Voter", name: "user-plus" },
-                { id: "v4", label: "Update Voters", name: "user-edit" },
+                { id: "v1", label: "Voters", name: "user-alt", mnemonic: "voters" },
+                { id: "v2", label: "Search", name: "search-plus", mnemonic: 'searchVoters' },
+                { id: "v3", label: "Add Voter", name: "user-plus", mnemonic: 'addVoter' },
+                { id: "v4", label: "Update Voters", name: "user-edit", mnemonic: 'updateVoter' },
             ],
         };
         const poolingServiceDetails = {
             title: "Polling Services",
             services: [
-                { id: "p1", label: "Pre poll Survey", name: "chart-bar" },
-                { id: "p2", label: "Polling Stats", name: "chart-line" },
-                { id: "p3", label: "Booth Managers", name: "person-booth" },
-                { id: "p4", label: "Favour Wise", name: "grin-stars" },
-                { id: "p5", label: "View", name: "user-alt" },
+                { id: "p1", label: "Pre poll Survey", name: "chart-bar", mnemonic: 'prePoolSurvey' },
+                { id: "p2", label: "Polling Stats", name: "chart-line", mnemonic: 'poolingStats' },
+                { id: "p3", label: "Booth Managers", name: "person-booth", mnemonic: 'boothManagers' },
+                { id: "p4", label: "Favour Wise", name: "grin-stars", mnemonic: 'favorWise' },
+                { id: "p5", label: "View", name: "user-alt", mnemonic: 'viewPoolingServices' },
             ],
         };
 
         const influencerServiceDetails = {
             title: "Influencer Services",
             services: [
-                { id: "i1", label: "Influencers", name: "users" },
-                { id: "i2", label: "Search", name: "search" },
-                { id: "i3", label: "Add", name: "user-plus" },
-                { id: "i4", label: "Modify", name: "users-cog" },
+                { id: "i1", label: "Influencers", name: "users", mnemonic: 'influencers' },
+                { id: "i2", label: "Search", name: "search", mnemonic: 'searchInfluencers' },
+                { id: "i3", label: "Add", name: "user-plus", mnemonic: 'addInfluencer' },
+                { id: "i4", label: "Modify", name: "users-cog", mnemonic: 'updateInfluencer' },
             ],
         };
 
         const birthDayServiceDetails = {
             title: "Birthday Services",
             services: [
-                { id: "b1", label: "View", name: "eye" },
-                { id: "b2", label: "Wish All", name: "birthday-cake" },
-                { id: "b3", label: "Upcoming", name: "calendar-alt" },
-                { id: "b4", label: "Auto/Manual", name: "bolt" },
+                { id: "b1", label: "View", name: "eye", mnemonic: 'viewBirthdays' },
+                { id: "b2", label: "Wish All", name: "birthday-cake", mnemonic: 'wishAll' },
+                { id: "b3", label: "Upcoming", name: "calendar-alt", mnemonic: 'upcomingBirthdays' },
+                { id: "b4", label: "Auto/Manual", name: "bolt", mnemonic: 'autoManualBirthdays' },
+            ],
+        };
+
+        const evenServiceDetails = {
+            title: "Event Services",
+            services: [
+                { id: "b1", label: "Add", name: "calendar-plus", mnemonic: 'addEvents' },
+                { id: "b2", label: "View", name: "calendar-alt", mnemonic: 'viewAllEvents' },
+                { id: "b3", label: "Modify", name: "edit", mnemonic: 'modifyEvent' },
+                { id: "b4", label: "Beneficiaries", name: "people-carry", mnemonic: 'beneficiaries' },
             ],
         };
 
@@ -116,6 +126,7 @@ app.get("/getallservices", (req, res) => {
                 poolingServiceDetails,
                 influencerServiceDetails,
                 birthDayServiceDetails,
+                evenServiceDetails
             ],
         });
     } else {
