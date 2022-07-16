@@ -173,10 +173,11 @@ router.get("/services", (req, res) => {
     code: 200,
     message: "",
     data: [
-      voterServiceDetails,
-      poolingServiceDetails,
-      influencerServiceDetails,
-      birthDayServiceDetails,
+      voterServices,
+      poolingServices,
+      influencerServices,
+      birthDayServices,
+      eventServices
     ],
   });
 });
