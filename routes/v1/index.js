@@ -174,7 +174,7 @@ router.get("/services", (req, res) => {
     message: "",
     data: [
       voterServices,
-      poolingServices,
+      pollingServices,
       influencerServices,
       birthDayServices,
       eventServices
